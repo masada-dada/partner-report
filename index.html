@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みなさんのAI活用、集計しました。| DADA WORKS</title>
+<style>
+  :root {
+    --blue: #433fff;
+    --blue-mid: #7b74ff;
+    --blue-light: #bbb8ff;
+    --blue-pale: #eeeeff;
+    --black: #111111;
+    --white: #fdfdfd;
+    --gray: #888888;
+    --gray-light: #f5f5f5;
+    --border: #e0e0e0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+  .meta { font-size: 11px; color: var(--blue); letter-spacing: 0.1em; font-weight: 700; margin-bottom: 4px; }
+  .meta-sub { font-size: 11px; color: var(--gray); margin-bottom: 20px; }
+  hr.top { border: none; border-top: 2px solid var(--blue); margin-bottom: 36px; }
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+  h1 { font-size: clamp(20px, 4vw, 28px); font-weight: 700; line-height: 1.4; margin-bottom: 10px; }
+  .subtitle { font-size: 13px; color: var(--gray); margin-bottom: 32px; }
+  .section-title {
+    background: var(--blue-pale);
+    border-left: 4px solid var(--blue);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 40px 0 20px;
+  }
+  p { margin-bottom: 14px; font-size: 14px; color: var(--black); }
+  .chart-wrap { margin: 24px 0; }
+  .chart-label { font-size: 12px; color: var(--gray); margin-bottom: 8px; font-weight: 600; letter-spacing: 0.05em; }
+  .quote {
+    border-left: 3px solid var(--blue);
+    background: var(--gray-light);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.7;
+  }
+  .quote small { font-size: 11px; color: var(--gray); display: block; margin-top: 6px; }
+  .owari-title { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  footer { font-size: 11px; color: var(--gray); line-height: 1.8; margin-top: 8px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; font-size: 12px; color: var(--gray); }
+  .legend span { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  @media (max-width: 480px) {
+    .wrap { padding: 32px 16px 60px; }
+    h1 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="meta">DADA WORKS</p>
+  <p class="meta-sub">パートナー向け共有資料　2026.03</p>
+  <hr class="top">
+
+  <h1>みなさんのAI活用、集計しました。</h1>
+  <p class="subtitle">アンケートにご協力いただきありがとうございました。13名分の回答をまとめてお届けします。</p>
+
+  <hr class="divider">
+
+  <div class="section-title">01. 全員が使っていた</div>
+
+  <p>まず全体を見ると、回答者全員が週に1回以上AIを使っていました。ほぼ毎日が77%、残りも週に数回。AIがすでに日常的なツールになっていることがわかります。</p>
+
+  <div class="chart-wrap">
+    <p class="chart-label">AI活用頻度　n=13名</p>
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#433fff;"></span>ほぼ毎日 77%</span>
+      <span><span class="legend-dot" style="background:#bbb8ff;"></span>週に数回 23%</span>
+    </div>
+    <div style="position:relative;width:100%;height:80px;">
+      <canvas id="chart1"></canvas>
+    </div>
+  </div>
+
+  <p>ただ「正直なところどう感じているか」を聞くと、「役立っている」と答えながら同時に「使いこなせている気がしない」も選んでいる方が複数いました。使っている、でも使いこなせていない。この感覚があるようです。</p>
+
+  <div class="chart-wrap">
+    <p class="chart-label">正直なところどう感じていますか？（複数回答）　n=13名</p>
+    <div style="position:relative;width:100%;height:220px;">
+      <canvas id="chart4"></canvas>
+    </div>
+  </div>
+
+  <div class="section-title">02. ツールと使い方の実態</div>
+
+  <p>メインツールはChatGPTとGeminiが各38%で二強。用途はテキスト生成とアイデア出しが圧倒的です。チャットで相談する道具として使うことが中心になっているのが見えてきます。</p>
+
+  <div class="chart-wrap">
+    <p class="chart-label">メインで使っているツール　n=13名</p>
+    <div style="position:relative;width:100%;height:200px;">
+      <canvas id="chart2"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <p class="chart-label">主な活用用途（複数回答）　n=13名</p>
+    <div style="position:relative;width:100%;height:280px;">
+      <canvas id="chart3"></canvas>
+    </div>
+  </div>
+
+  <div class="section-title">03. 職種で見ると、ハードルの種類が違う</div>
+
+  <p>コーダーはコーディング補助として業務に直接使えたり、自動化の仕組みを作っていたりと、ツールとの距離が近い分、実務への落とし込みが自然に起きていました。</p>
+  <p>一方でデザイナーは、AIを使っていても用途がテキストやアイデア出しに偏っていて、デザイン制作そのものへの活用には至っていないケースが多い。「使いこなせていない」と感じている人が半数いるのも、デザイナーに集中しています。</p>
+  <p>これはスキルだけの話ではないと思います。「AIに何を任せるか」のイメージが掴みにくい職種ほど、チャットで使う段階に留まりやすい。感情的なハードルも含めて、使いやすさの前提が違うのだと感じています。</p>
+
+  <div class="section-title">04. 業界と比べると</div>
+
+  <p>2026年1月に公開されたWebデザイナー110名を対象とした調査があります。</p>
+
+  <div class="quote">
+    バナー広告でAIを活用しているデザイナーは36%、ラフ案作成への活用は58%。「修正回数が減った」63%、「成果物の品質が向上した」47%。
+    <small>フリーランス・副業WEBデザイナーのAI活用実態と2026年展望調査、IDEAEC調査 2026年1月</small>
+  </div>
+
+  <p>バナーやラフ案の制作工程にAIを組み込んでいるデザイナーが、業界では一定数います。私たちの仕事の中心であるバナー・LPの制作工程で、こうした活用がどこまでできているかというと、まだこれからだと正直に感じています。</p>
+
+  <div class="section-title">05. みなさんが求めているテーマ</div>
+
+  <p>「どんなテーマの勉強会に参加したいか」を聞いたところ、「業務フローへの組み込み方」が69%でトップ。チャットで使う段階から、制作の工程に組み込む段階へという関心が、全体にあることがわかりました。</p>
+
+  <div class="chart-wrap">
+    <p class="chart-label">勉強会で参加したいテーマ（複数回答）　n=13名</p>
+    <div style="position:relative;width:100%;height:260px;">
+      <canvas id="chart5"></canvas>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="owari-title">おわりに</p>
+  <p>今回の結果を見て、「業務フローへの組み込み」を一緒に考えていきたいと思っています。まずはこのアンケート結果の共有を出発点に、それぞれの職種でAIをどう使えるか、少しずつ一緒に探っていけたらと思います。</p>
+
+  <hr class="divider">
+
+  <footer>
+    調査概要：DADAWORKSパートナーメンバー向けアンケート　回答数：13名　実施期間：2026年3月<br>
+    職種内訳：ディレクター5名 / デザイナー4名 / コーダー3名 / その他1名
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const B  = '#433fff';
+const BM = '#7b74ff';
+const BL = '#bbb8ff';
+const GR = '#dddddd';
+const GT = '#888888';
+const fnt = { family:"'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif", size:12 };
+Chart.defaults.font = fnt;
+Chart.defaults.color = GT;
+
+new Chart(document.getElementById('chart1'), {
+  type:'bar',
+  data:{
+    labels:[''],
+    datasets:[
+      {label:'ほぼ毎日',data:[77],backgroundColor:B,borderRadius:2},
+      {label:'週に数回',data:[23],backgroundColor:BL,borderRadius:2}
+    ]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
+    scales:{x:{stacked:true,display:false,max:100},y:{stacked:true,display:false}}
+  }
+});
+
+new Chart(document.getElementById('chart2'), {
+  type:'bar',
+  data:{
+    labels:['その他','Claude','Gemini','ChatGPT'],
+    datasets:[{data:[1,2,5,5],backgroundColor:[GR,BL,B,B],borderRadius:3,barThickness:28}]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}名`}}},
+    scales:{
+      x:{grid:{color:'#f0f0f0'},border:{display:false},ticks:{stepSize:1,callback:v=>`${v}名`},max:7},
+      y:{grid:{display:false},border:{display:false}}
+    }
+  }
+});
+
+new Chart(document.getElementById('chart3'), {
+  type:'bar',
+  data:{
+    labels:['その他','翻訳・多言語対応','議事録・要約','デザインの言語化','コーディング補助','画像生成・ビジュアル参考','調査・情報収集','アイデア出し','テキスト生成・ライティング'],
+    datasets:[{
+      data:[1,3,4,4,5,7,9,11,11],
+      backgroundColor:(ctx)=>{const v=ctx.raw;return v>=10?B:v>=7?BM:v>=5?BL:GR;},
+      borderRadius:3,barThickness:22
+    }]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}名（${Math.round(c.raw/13*100)}%）`}}},
+    scales:{
+      x:{grid:{color:'#f0f0f0'},border:{display:false},ticks:{stepSize:2,callback:v=>`${v}名`},max:14},
+      y:{grid:{display:false},border:{display:false},ticks:{font:{size:11}}}
+    }
+  }
+});
+
+new Chart(document.getElementById('chart4'), {
+  type:'bar',
+  data:{
+    labels:['もっと活用したい','正直わからない','イメージできない','使いこなせていない','役立っている'],
+    datasets:[{data:[1,1,1,4,11],backgroundColor:[GR,GR,GR,BL,B],borderRadius:3,barThickness:26}]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}名`}}},
+    scales:{
+      x:{grid:{color:'#f0f0f0'},border:{display:false},ticks:{stepSize:2,callback:v=>`${v}名`},max:14},
+      y:{grid:{display:false},border:{display:false},ticks:{font:{size:11}}}
+    }
+  }
+});
+
+new Chart(document.getElementById('chart5'), {
+  type:'bar',
+  data:{
+    labels:['クライアントへの開示','その他','画像生成AIの活用事例','ツールの紹介・共有','コーディング補助の実践','プロンプトの書き方','業務フローへの組み込み方'],
+    datasets:[{
+      data:[2,1,5,6,6,8,9],
+      backgroundColor:(ctx)=>{const v=ctx.raw;return v>=8?B:v>=6?BM:v>=4?BL:GR;},
+      borderRadius:3,barThickness:24
+    }]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}名（${Math.round(c.raw/13*100)}%）`}}},
+    scales:{
+      x:{grid:{color:'#f0f0f0'},border:{display:false},ticks:{stepSize:2,callback:v=>`${v}名`},max:11},
+      y:{grid:{display:false},border:{display:false},ticks:{font:{size:11}}}
+    }
+  }
+});
+</script>
+</body>
+</html>
